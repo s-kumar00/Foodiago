@@ -21,7 +21,6 @@ import { Provider } from "react-redux";
 import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
-// require('dotenv').config();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
