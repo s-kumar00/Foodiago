@@ -46,7 +46,7 @@ const Newproduct = () => {
 
       if (name && image && category && price) {
         const fetchData = await fetch(
-          `${process.env.REACT_APP_SERVER_DOMIN}/uploadProduct`,
+          `${process.env.REACT_APP_SERVER_DOMAIN}/uploadProduct`,
           {
             method: "POST",
             headers: {

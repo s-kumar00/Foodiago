@@ -3,7 +3,7 @@ import signlogin from "../assets/login-animation.gif";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { loginRedux } from "../redux/userSlice";
 
 const Login = () => {
@@ -13,8 +13,6 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-
-  const userData = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -32,13 +30,16 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = data;
     if (email && password) {
-      const fetchData = await fetch(`http://localhost:8000/login`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const fetchData = await fetch(
+        `${process.env.REACT_APP_SERVER_DOMAIN}/login`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       const dataRes = await fetchData.json();
 
