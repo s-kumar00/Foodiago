@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Stripe = require("stripe");
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:"*"
+}));
+
 app.use(express.json());
 const PORT = process.env.PORT || 8000;
 //mongodb connection
